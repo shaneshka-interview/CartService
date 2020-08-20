@@ -1,6 +1,6 @@
 using System;
 
-namespace CartModels
+namespace CartRepository.Models
 {
     public class Cart
     {

@@ -14,51 +14,65 @@ namespace CartService.Controllers
     public class CartsController : ControllerBase
     {
         private readonly ILogger<CartsController> _logger;
-        private readonly ICartRepository _cartRepository;
+        private readonly ICartsRepository _cartsRepository;
 
-        public CartsController(ILogger<CartsController> logger, ICartRepository cartRepository)
+        public CartsController(ILogger<CartsController> logger, ICartsRepository cartsRepository)
         {
             _logger = logger;
-            _cartRepository = cartRepository;
+            _cartsRepository = cartsRepository;
         }
 
-        [HttpGet,Route("help")]
-        public async Task<string> GetHelp()
+        [HttpGet("help")]
+        public string GetHelp()
         {
             return @"
 GET api/carts
 
 GET api/carts/{id}/products
-POST api/carts/{id}/products
-DELETE api/carts/{id}/products
 
-POST api/carts/{id}/hook
+POST api/carts/{id}/products
+BODY {""productId"":1,""count"":1,""cost"":1,""IsBonusPoints"":true}
+
+PUT api/carts/{id}/products
+BODY {""productId"":1,""count"":1,""cost"":1,""IsBonusPoints"":true}
+
+DELETE api/carts/{id}/products/{productId}
+
+POST api/carts/{id}/hookExpire
+BODY ""http://""
 ";
         }
 
         [HttpGet]
         public async Task<IEnumerable<int>> GetCarts()
         {
-            return null;
+            return (await _cartsRepository.GetCartsAsync())?.Select(x => x.Id);
         }
 
-        [HttpGet, Route("{id}/products")]
+        [HttpGet("{id}/products")]
         public async Task<IEnumerable<ProductDto>> GetProducts(int id)
         {
-            return (await _cartRepository.GetProductsAsync(id))?.Select(ToDto);
+            return (await _cartsRepository.GetProductsAsync(id))?.Select(ToDto);
         }
 
-        [HttpPost, Route("{id}/products")]
+        [HttpPost("{id}/products")]
         public async Task<ActionResult> Add(int id, ProductDto dto)
         {
-            await _cartRepository.AddAsync(ToModel(id, dto));
+            await _cartsRepository.AddAsync(ToModel(id, dto));
             return NoContent();
         }
 
-        [HttpDelete, Route("{id}/products")]
+        [HttpPut("{id}/products")]
+        public async Task<ActionResult> Update(int id, ProductDto dto)
+        {
+            await _cartsRepository.UpdateAsync(ToModel(id, dto));
+            return NoContent();
+        }
+
+        [HttpDelete("{id}/products/{productId}")]
         public async Task<ActionResult> DeleteProduct(int id, int productId)
         {
-            await _cartRepository.DeleteAsync(new ProductDeleteDto
+            await _cartsRepository.DeleteAsync(new ProductDeleteDto
             {
                 CartId = id,
                 ProductId = productId
@@ -66,10 +80,10 @@ POST api/carts/{id}/hook
             return NoContent();
         }
 
-        [HttpPost, Route("{id}/hook")]
-        public async Task<ActionResult> AddHook(int id, string url)
+        [HttpPost("{id}/hookExpire")]
+        public async Task<ActionResult> AddHook(int id, [FromBody] string url)
         {
-            await _cartRepository.AddHookAsync(new CartHook
+            await _cartsRepository.AddHookAsync(new CartHook
             {
                 Url = url,
                 CartId = id
@@ -82,6 +96,7 @@ POST api/carts/{id}/hook
             return new ProductDto
             {
                 Count = product.Count,
+                Cost = product.Cost,
                 ProductId = product.ProductId,
                 IsBonusPoints = product.IsBonusPoints
             };
@@ -92,6 +107,7 @@ POST api/carts/{id}/hook
             return new CartProduct
             {
                 Count = product.Count,
+                Cost = product.Cost,
                 CartId = cartId,
                 ProductId = product.ProductId,
                 IsBonusPoints = product.IsBonusPoints

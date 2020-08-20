@@ -1,17 +1,11 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using CartRepository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace CartService
 {
@@ -29,14 +23,13 @@ namespace CartService
         {
             services.AddControllers();
 
-            string path = Environment.CurrentDirectory+"/../CartDb.sqlite";
-            string connectionString = $"Data Source={path}";
-            //"Server=.\\SQLEXPRESS;Initial Catalog=cartstore;Integrated Security=True";
+            string connectionString = Settings.Settings.ConnectionString;
             services.AddTransient<IBaseRepository, BaseRepository>(provider =>
                 new BaseRepository(connectionString));
-            services.AddTransient<ICartRepository, CartRepository.CartRepository>(provider =>
+            services.AddTransient<ICartsRepository, CartsRepository>(provider =>
             {
-                var rep =new CartRepository.CartRepository(connectionString);
+                var rep =new CartsRepository(connectionString);
+                var path = connectionString.Split('=')[1];
                 if (!File.Exists(path))
                 {
                     rep.CreateDatabase();

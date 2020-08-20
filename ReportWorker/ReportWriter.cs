@@ -5,12 +5,12 @@ using Microsoft.Extensions.Logging;
 namespace ReportWorker
 {
 
-    public interface IReportStat
+    public interface IReportWriter
     {
         void Save(string text);
     }
 
-    public class ReportStat : IReportStat
+    public class ReportWriter : IReportWriter
     {
         public void Save(string text)
         {

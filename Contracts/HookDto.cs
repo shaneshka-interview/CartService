@@ -1,4 +1,4 @@
-namespace CartService.Contracts
+namespace Contracts
 {
     public class HookDto
     {

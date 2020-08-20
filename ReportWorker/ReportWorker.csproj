@@ -3,15 +3,16 @@
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <UserSecretsId>dotnet-ReportWorker2-045FBF62-A0F8-4D08-9525-2FF7CD3B1B2A</UserSecretsId>
-        <RootNamespace>ReportWorker2</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="FileLogger" Version="1.0.0.1" />
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.7" />
         <PackageReference Include="System.Data.SQLite" Version="1.0.113.1" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Repository\Repository.csproj" />
+      <ProjectReference Include="..\Settings\Settings.csproj" />
     </ItemGroup>
 </Project>
