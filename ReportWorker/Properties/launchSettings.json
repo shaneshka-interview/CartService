@@ -1,0 +1,10 @@
+﻿{
+  "profiles": {
+    "ReportWorker2": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

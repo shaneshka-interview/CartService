@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\pavelk\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\pavelk\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_CartService.1815873325.00" t="ExcludeRecursive" />
+    <e p="C:\Work\course\CartService" t="IncludeFlat">
+      <e p="CartService.sln" t="IncludeFlat" />
+      <e p="Contracts" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Contracts.csproj" t="IncludeRecursive" />
+        <e p="HookDto.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="Contracts.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="ProductDto.cs" t="Include" />
+      </e>
+      <e p="ExpireWorker" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="ExpireWorker.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="ExpireWorker.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Worker.cs" t="Include" />
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="ReportWorker" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="ReportWorker.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Reports" t="Include">
+          <e p="2020.08.20.txt" t="Include" />
+        </e>
+        <e p="ReportWorker.csproj" t="IncludeRecursive" />
+        <e p="ReportWriter.cs" t="Include" />
+        <e p="Worker.cs" t="Include" />
+      </e>
+      <e p="Repository" t="IncludeRecursive">
+        <e p="BaseRepository.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="CartsRepository.cs" t="Include" />
+        <e p="Models" t="Include">
+          <e p="Cart.cs" t="Include" />
+          <e p="CartHook.cs" t="Include" />
+          <e p="CartProduct.cs" t="Include" />
+          <e p="Product.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="Repository.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Repository.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="Settings" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="Settings.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Settings.cs" t="Include" />
+        <e p="Settings.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="WebApi" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="CartsController.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="WebApi.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+        <e p="WebApi.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="Workers" t="Include" />
+    </e>
+  </component>
+</project>
